@@ -37,5 +37,6 @@ The planned database integration will handle the following data:
 * Implement the **database connection** and management logic.
 * Create a **quarantine service** to manage ID expiration and removal from the quarantine list.
 * Develop a full **API** for creating, validating, and managing meeting IDs and guest access.
+* Edge Case Handling **Limit Hit** Generate a Different pattern if there is no space for the current pattern format
 
 This README provides an overview of the current functionality and future vision for the Meeting ID Generator. For more details on implementation, refer to the function docstrings within the code.

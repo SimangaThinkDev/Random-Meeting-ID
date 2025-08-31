@@ -1,7 +1,8 @@
 import random
 from string import ascii_lowercase
 from typing import Tuple
-
+import numpy as np
+# import secrets # Uses TRNG - True Random Number Generator
 
 # This is the simplest way to generate a meeting id
 
@@ -15,11 +16,14 @@ def generate_portion( portion_size:int ):
     Returns:
         A string of random lowercase letters with a length equal to `portion_size`.
     """
-    portion = ""
-    for _ in range( portion_size ):
-        portion += random.choice( ascii_lowercase )
+    letters = list( ascii_lowercase ) # Preferred lowercase because of url mappings
+    # Convert the letters list to a numpy array
+    letters = np.array( letters )
 
-    return portion
+    # Generate random letters with numpy's random.choice method
+    random_letters:str = ''.join( np.random.choice( letters, size=portion_size ) )
+
+    return random_letters
 
 
 def generate_meeting_id( pattern: tuple[int, int, int] ):
@@ -49,4 +53,4 @@ def generate_meeting_id( pattern: tuple[int, int, int] ):
 
 
 if __name__ == "__main__":
-    print( generate_meeting_id( (3, 3, 4) ) )
+    print( generate_meeting_id( (4, 3, 4) ) )
